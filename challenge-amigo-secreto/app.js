@@ -10,6 +10,23 @@ function addFriend() {
       } else {
         amigos.push(nameFriend);
         document.querySelector("#friend").value = "";
-        mostrarListaAmigo();                                    //se agregan los datos del form a la lista 
+        showListaAmigos();                                    //se agregan los datos del form a la lista 
       }
     }
+    
+    /**
+     * Actualiza la visualización de la lista de amigos en el DOM, creando elementos <li> para cada amigo.
+     */
+    function showListaAmigos() {
+        let listaAmigos = document.querySelector("#listaAmigos");
+        listaAmigos.innerHTML = "";
+      
+        for (let index = 0; index < amigos.length; index++) {
+          const element = amigos[index];
+      
+          let listaHTML = document.createElement("li");
+          listaHTML.textContent = element;
+          listaAmigos.appendChild(listaHTML);                  //actualiza la lista con los elementos del form y los muestra en la web
+        }
+      }
+      
