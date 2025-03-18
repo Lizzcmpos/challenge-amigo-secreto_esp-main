@@ -6,7 +6,7 @@ function addFriend() {
     let nameFriend = document.getElementById("friend").value;   //llama el elemento con el id friend, desde el form HTML
 
     if (nameFriend.trim() === "") {
-        alert("Por favor, inserta el nombre de tu amigo");      //Se agrega Validacion para evitar campos 'vacios'
+        alert("Por favor, inserta el nombre de tus amigos");      //Se agrega Validacion para evitar campos 'vacios'
       } else {
         amigos.push(nameFriend);
         document.querySelector("#friend").value = "";
@@ -29,4 +29,17 @@ function addFriend() {
           listaAmigos.appendChild(listaHTML);                  //actualiza la lista con los elementos del form y los muestra en la web
         }
       }
-      
+    /**
+     * Sortea y muestra un amigo de la lista de amigos de manera aleatoria.
+     * Verifica que la lista no esté vacía antes de realizar el sorteo.
+     */
+    function sortearAmigo() {
+        let cantidadAmigos = amigos.length;
+        if (cantidadAmigos === 0) {
+          alert("Por favor, inserte un nombre antes de sortear");
+        } else {
+          let indiceAmigo = Math.floor(Math.random() * cantidadAmigos);     
+          let resultadoHTML = document.querySelector("#resultado");     //Se hace el sorteo del amigo secreto, utilizando los nombres que estan en la lista.
+          resultadoHTML.innerHTML = amigos[indiceAmigo];
+        }
+      }
