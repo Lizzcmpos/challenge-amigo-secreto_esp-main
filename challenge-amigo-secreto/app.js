@@ -6,7 +6,7 @@ function addFriend() {
     let nameFriend = document.getElementById("friend").value; 
 
     if (nameFriend.trim() === "") {
-        alert("Por favor, inserte el nombre de tu amigo");
+        alert("Por favor, inserta el nombre de tu amigo");
       } else {
         amigos.push(nameFriend);
         document.querySelector("#friend").value = "";
